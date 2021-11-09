@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QR - BarCode</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/templete.css">
+</head>
+<body>
+    <div class="bg"></div>
+    <header><h3>BarCode & QR Code Generator</h3></header>
+    <marquee>Digite qualquer String, Nome, Link, Celular Não aqui e obtenha o Código de Barras e o Código QR deles.</marquee>
+    <div class="inputs">
+        <form action="Javascript:void(0);" method="POST">
+            <input type="text" id="string" placeholder="Digite qualquer texto aqui.">
+            <input type="submit" onclick="show()" value="Gerar">
+        </form>
+    </div>
+    <center>
+        <div class="output">
+            <label>BarCode: </label>
+            <img id="barcode">
+            <label>QR Code: </label>
+            <div id="qrcode"></div>
+        </div>
+    </center>
+    <footer><h3>Coder: LUMATECH APPS E GAMES 2019 &copy;</h3></footer>
+
+    <script src="js/gerador.js"></script>
+    <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/JsBarcode.all.min.js"></script>
+    <script src="js/jquery.qrcode.min.js"></script>
+</body>
+</html>

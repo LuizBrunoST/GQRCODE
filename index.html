@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>GQrCode</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/com.lumatech.w3.css">
+    <link rel="stylesheet" href="css/com.lumatech.style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body onload="alComoUsar()">
+
+    <!-- MODALS -->
+
+    <!-- modalInternet -->
+    <div class="w3-modal" id="modalInternet">
+        <div class="w3-modal-content w3-container">
+            <p>Você está sem internet, Alguns componentes não pode funcionar.</p>
+            <button class="w3-blue w3-round w3-hover-blue w3-button" onclick="document.getElementById('modalInternet').style.display='none'">Continuar</button>
+        </div>
+    </div>
+
+    <!-- modalAjuda -->
+    <div class="w3-modal" id="modalAjuda">
+        <div class="w3-modal-content w3-container">
+            <p>Este código gera código de barras de trabalho e código QR.</p>
+            <p>Você pode digitalizar esses códigos para ver sua saída.</p>
+            <button class="w3-blue w3-round w3-hover-blue w3-button" onclick="document.getElementById('modalAjuda').style.display='none'">Continuar</button>
+        </div>
+    </div>
+
+    <!-- modalNew -->
+    <div class="w3-modal" id="modalNew">
+        <span class="w3-red w3-btn w3-display-topright" onclick="document.getElementById('modalNew').style.display='none'">&times;</span>
+        <div class="w3-modal-content w3-animate-top w3-round">
+            <h4 class="w3-blue w3-padding">Novo Qrcode</h4>
+            <div class="w3-bar">
+                <span class="w3-bar-item w3-mobile w3-btn" onclick="document.getElementById('modalTextQrcode').style.display='block'"><i class="fa fa-file-text"></i> Texto | <i class="fa fa-qrcode"></i></span>
+                <span class="w3-bar-item w3-mobile w3-btn" onclick="window.alert('Não está disponivél,\nprocure a versão mais recente.')"><i class="fa fa-phone"></i> Contato | <i class="fa fa-qrcode"></i></span>
+                <span class="w3-bar-item w3-mobile w3-btn" onclick="window.alert('Não está disponivél,\nprocure a versão mais recente.')"><i class="fa fa-internet-explorer"></i> Url | <i class="fa fa-qrcode"></i></span>
+                <span class="w3-bar-item w3-mobile w3-btn" onclick="window.alert('Não está disponivél,\nprocure a versão mais recente.')"><i class="fa fa-file-text"></i> Texto | <i class="fa fa-barcode"></i></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- modalTextQrcode -->
+    <div class="w3-modal" id="modalTextQrcode">
+        <div class="w3-modal-content w3-animate-top w3-round">
+            <h4 class="w3-blue w3-padding">Qr Code Texto</h4>
+            <div>
+                <form action="Javascript:void(0);" method="POST">
+                    <input class="w3-input" type="text" id="string" placeholder="Digite qualquer texto aqui.">
+                    <input class="w3-button w3-mobile w3-blue w3-round w3-hover-blue" type="submit" onclick="show()" value="Gerar">
+                </form>
+                <button class="w3-button w3-red w3-round w3-hover-red w3-mobile" onclick="document.getElementById('modalTextQrcode').style.display='none'">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- modalSobre -->
+    <div class="w3-modal" id="modalSobre">
+        <span class="w3-red w3-btn w3-display-topright" onclick="document.getElementById('modalSobre').style.display='none'">&times;</span>
+        <div class="w3-modal-content w3-animate-top">
+            <div class="w3-bar">
+                Digite qualquer String, Nome, Link, Celular Não aqui e obtenha o Código de Barras e o Código QR deles.
+                <p class="w3-bar-item">LUMATECH APPS E GAMES 2019 &copy; - copyright</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOPO -->
+    <div class="w3-bar w3-blue">
+        <i class="fa fa-qrcode w3-xxlarge" style="text-shadow: 0px 1px 2px #000;"></i>
+        <span class="w3-xxlarge" style="text-shadow: 0px 1px 2px #000;">GQrCode</span>
+    </div>
+
+    <div class="output">
+        <!-- removed 22:34 27/08/2021
+        <label>BarCode: </label>
+        <img id="barcode">
+        -->
+        <label>QR Code: </label>
+        <div id="qrcode"></div>
+    </div>
+
+    <!-- + footer -->
+    <div class="w3-badge w3-blue w3-display-bottomright" style="margin-right: 10px; margin-bottom: 10px;">
+        <div class="w3-badge w3-blue tooltip">
+            <span class="w3-xxlarge">+</span>
+            <span class="tooltiptext w3-bar w3-card">
+                <span onclick="document.getElementById('modalNew').style.display='block'" class="w3-bar-item w3-button w3-hover-blue w3-ronud"><i class="fa fa-file-o"></i> Novo</span>
+                <span onclick="document.getElementById('modalSobre').style.display='block'" class="w3-bar-item w3-button w3-hover-blue w3-ronud"><i class="fa fa-address-card"></i> Sobre</span>
+            </span>
+        </div>
+    </div>
+
+    <script src="js/gerador.js"></script>
+    <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/JsBarcode.all.min.js"></script>
+    <script src="js/jquery.qrcode.min.js"></script>
+    <script src="js/com.lumatech.verifyNet.js"></script>
+
+</body>
+</html>
